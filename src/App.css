@@ -1,38 +1,179 @@
+/* General Styles */
+body {
+  background-color: var(--background-color);
+  font-family: 'Arial', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --background-color: #f0f8ff;
+  --text-color: #333;
+  --todo-background: #fff;
+  --button-background: #007bff;
+  --button-hover: #0056b3;
+  --complete-background: #28a745;
+  --delete-background: #dc3545;
+}
+
+.dark {
+  --background-color: #333;
+  --text-color: #f0f8ff;
+  --todo-background: #555;
+  --button-background: #6c757d;
+  --button-hover: #5a6268;
+  --complete-background: #218838;
+  --delete-background: #c82333;
+}
+
 .App {
   text-align: center;
+  margin-top: 50px;
+  color: var(--text-color);
+  padding: 0 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  /* color: var(--text-color); */
+  color: rgba(60, 85, 156, 0.89);
+  font-size: 2.5em;
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.dark-mode-toggle {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--button-background);
   color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.dark-mode-toggle:hover {
+  background-color: var(--button-hover);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+input[type="text"] {
+  padding: 10px;
+  margin-right: 10px;
+  width: calc(100% - 90px);
+  max-width: 400px;
+  border: 2px solid var(--button-background);
+  border-radius: 5px;
+  background-color: var(--todo-background);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--button-background);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--todo-background);
+  padding: 10px;
+  margin: 10px auto;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.todo-text {
+  flex-grow: 1;
+  margin-right: 20px;
+  font-size: 1.2em;
+  color: var(--text-color);
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.todo-buttons button {
+  margin-left: 10px;
+  background-color: var(--complete-background);
+}
+
+.todo-buttons button.delete {
+  background-color: var(--delete-background);
+}
+
+.todo-buttons button:hover {
+  background-color: var(--complete-background);
+}
+
+.todo-buttons button.delete:hover {
+  background-color: var(--delete-background);
+}
+
+.filter-buttons {
+  margin: 20px 0;
+}
+
+.filter-buttons button {
+  margin: 0 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--button-background);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-buttons button.active {
+  background-color: var(--button-hover);
+}
+
+.filter-buttons button:hover {
+  background-color: var(--button-hover);
+}
+
+@media (max-width: 600px) {
+  .App {
+    margin-top: 30px;
+    padding: 0 5px;
   }
-  to {
-    transform: rotate(360deg);
+
+  h1 {
+    font-size: 2em;
+  }
+
+  input[type="text"] {
+    width: calc(100% - 80px);
+  }
+
+  .todo-item {
+    width: 100%;
+  }
+
+  .filter-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter-buttons button {
+    width: 100%;
+    margin: 5px 0;
   }
 }
